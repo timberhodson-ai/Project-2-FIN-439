@@ -1,0 +1,31 @@
+Project 2 · Video 2 — Code walkthrough
+
+0:00–0:35 · How to run it (README.md, line 20)
+
+Instead of having each file open in Visual Studio Code, which would have me more occupied messing with the different windows, I will reference each line for you in each individual file as I discuss certain topics.
+
+I used OpenAI Codex to help integrate my lab code, build the Streamlit interface, and test the results. I reviewed the evidence and own the analysis and decision. This is for education only and does not constitute investment advice.
+
+This is how someone can launch the app from the repository. Once the dependencies are installed, this command opens the dashboard using the saved prices. I’ll trace one setting through the code, then show what it changes in the portfolio.
+
+0:35–1:10 · Where the sidebar input goes (app.py, lines 15–20)
+
+This checkbox controls which months the app uses to estimate returns and risk. When I check it, last_36 becomes true. The app passes that setting into run, along with the annual cost, the EEM cap, and the VOO return adjustment. The app also calculates a separate reference portfolio using the defaults, so there’s a consistent baseline for measuring how much the weights move.
+
+1:10–2:10 · How prices become portfolio estimates (analysis.py, line 18; portfolio.py, lines 162–164)
+
+This function reads the saved monthly prices and calculates the return from one month to the next. If the box is checked, it keeps the last 36 monthly returns before estimating each ETF’s return and volatility and how the ETFs move together.
+
+That matters because a shorter window can change both the return estimates and which ETFs provide diversification. The code then subtracts the selected annual cost from the return estimates and evaluates the portfolios under the selected assumptions.
+
+2:10–3:15 · How the optimizer picks a portfolio (portfolio.py, line 125; analysis.py, line 39)
+
+This loop works through portfolios in five-percentage-point steps. The weights add up to 100 percent, and the search skips mixes that break the weight limits or miss the seven percent estimated net return hurdle. Among the mixes that qualify, it keeps the one with the lowest estimated volatility.
+
+The app also displays equal weight and inverse volatility so the committee can see how simpler approaches compare. These checks explain why a portfolio passes or fails. In the default case, both baselines clear the return hurdle but hold too little VOO, so the app gives the specific reason for each failure.
+
+3:15–4:35 · Run the test live
+
+With the full window, the selected portfolio is 70 percent VOO and 30 percent EEM. Now I’ll change only the window. The portfolio moves to 80 percent VOO and 20 percent EEM. Each of those holdings moves by ten percentage points, so the largest move is ten.
+
+That’s below my 15-point stop threshold, so the paper-pilot decision holds in this test. The allocation still moved enough to matter. That’s why I’d monitor how sensitive the weights are to the choice of data window, and why I’d want evidence from new data before using live capital.

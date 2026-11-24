@@ -1,0 +1,11 @@
+I used OpenAI Codex to help turn my lab code into an interactive app, run checks, and draft documentation. I reviewed the evidence and own the analysis and recommendation. This is for education only and does not constitute investment advice.
+
+The app helps a committee decide whether to pilot an ETF allocation. My objective was to find the lowest estimated volatility while meeting a 7 percent estimated net return hurdle and staying within the portfolio’s weight limits.
+
+I started with a simple question: could a diversified mix clear the return hurdle? The comparison showed why that question was too narrow. Both equal weight and inverse volatility clear 7 percent in the base case, but both fail the 40 percent minimum weight in VOO. That changed what I looked for. I wanted the app to show which rule a portfolio fails so the committee can see why a seemingly reasonable mix is ineligible.
+
+One number I scrutinized was the 9.53 percent annual return estimate for EEM. I wanted to know whether the result came from the saved prices and what that percentage actually measured. The audit matched all 61 monthly prices to the saved source and reproduced the estimate from 60 monthly returns.
+
+The 9.53 percent figure is the average monthly return multiplied by 12. Compounding over the same period gives 8.32 percent annually. That distinction matters because the optimizer uses the first number as an input. It’s a historical estimate, and I wouldn’t present it to the committee as a forecast.
+
+I’d ask the committee to approve a paper pilot with zero live capital. The starting mix is 70 percent VOO and 30 percent EEM. The 36-month window moves it to 80 percent VOO and 20 percent EEM, so I’d monitor how sensitive the weights are to the data window and to trading costs. I’d stop if a stress leaves us with no feasible portfolio or moves any holding by at least 15 percentage points.

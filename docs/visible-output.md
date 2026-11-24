@@ -1,8 +1,4 @@
-# Capstone executed output
-
-October 16, 2026 ADP snapshot. Base value: $178.24 per share. Downside value: $157.12 per share. Paper diligence ceiling: $142.60. At the $288.90 reference price, ADP stays outside the paper pilot. Direct ADP paper and live weights are 0%.
-
-## ETF pilot results
+# Executed output
 
 **Decision as of 2026-10-22** — Pilot on paper with 0% live capital. Pause if any stress yields no feasible mix or moves any sleeve by at least 15 percentage points.
 

@@ -1,18 +1,12 @@
 """Streamlit interface for the frozen Project 2 analysis."""
-from hashlib import sha256
-from datetime import date
-import json
-import math
-import os
 from pathlib import Path
 
 import streamlit as st
 
 from analysis import AS_OF, OBJECTIVE, STOP_SHIFT, TICKERS, decision, run, shift, signal, stresses
-from pilot_review import EVIDENCE, PROMPT, request_review, validate_review
 
 st.set_page_config(page_title='ETF allocation readiness', layout='wide')
-st.title('Capstone paper-pilot dashboard')
+st.title('ETF allocation committee dashboard')
 st.caption(f'Saved decision snapshot: {AS_OF}. Education only. Investment advice is outside its scope.')
 st.write('The mandate minimizes estimated annual volatility on a 5-point grid. The portfolio is fully '
          'invested and long-only, with a 7% net return hurdle, at least 40% VOO, and at most 30% VB. '
@@ -36,75 +30,6 @@ if decision(worst_change) == 'Pilot on paper':
              f'reference stresses: {", ".join(ranges)}.')
 st.caption('Monitor feasibility, sleeve movement and realized costs. Stop if a stress is infeasible '
            'or moves any sleeve by at least 15 percentage points.')
-
-st.subheader('ADP valuation and paper-pilot eligibility')
-adp_eligible = False
-adp_price = st.sidebar.number_input('ADP scenario price (USD/share)', min_value=0.01,
-                                    value=288.90, step=1.0)
-try:
-    valuation = json.loads(Path(__file__).with_name('ADP_project_DCF.json').read_text(encoding='utf-8'))
-    base_value = float(valuation['values']['base']['per_share'])
-    downside_value = float(valuation['values']['downside']['per_share'])
-    if not (math.isfinite(base_value) and 0 < downside_value <= base_value):
-        raise ValueError('Invalid DCF case values')
-except (OSError, KeyError, TypeError, ValueError):
-    st.error('ADP valuation evidence is unavailable or invalid. Hold ADP out of the paper pilot.')
-else:
-    # Carry the earlier 20% base-case margin of safety into the investment screen.
-    entry_ceiling = min(0.80 * base_value, downside_value)
-    st.write(f'October 16 ADP valuation: ${base_value:,.2f} base and ${downside_value:,.2f} downside per share. '
-             f'Paper-candidate ceiling: ${entry_ceiling:,.2f}.')
-    if adp_price <= entry_ceiling:
-        adp_eligible = True
-        st.success('ADP clears the valuation screen. Complete the evidence review before advancing.')
-    else:
-        st.info('ADP fails the valuation screen. Keep the paper pilot ETF-only at this price.')
-    st.caption('The price control starts at the October 16 reference close. The screen requires a 20% '
-               'discount to base value and a price at or below downside value. ADP is outside the ETF '
-               'optimizer and needs its own portfolio-risk test before any paper weight is assigned.')
-
-with st.expander('AI evidence review for ADP diligence', expanded=adp_eligible):
-    st.caption('The model proposes a diligence check. An analyst must verify the evidence and accept '
-               'or correct the check before ADP can advance. The screen and ETF rules still apply.')
-    route = st.radio('Review route', ('Purdue GenAI Studio API', 'Manual fallback after an API failure'))
-    if route == 'Purdue GenAI Studio API':
-        if st.button('Request evidence review'):
-            st.session_state.pop('review_response', None)
-            try:
-                st.session_state['review_response'] = request_review()
-            except (OSError, ValueError, KeyError, IndexError, TypeError):
-                st.error('GenAI review unavailable. Check API access and model settings or use the documented fallback.')
-        raw_review = st.session_state.get('review_response', '')
-        if raw_review:
-            st.code(raw_review, language='json')
-    else:
-        st.code(PROMPT, language=None)
-        raw_review = st.text_area('Paste the exact model response')
-    if raw_review:
-        try:
-            review = validate_review(raw_review)
-        except (TypeError, ValueError):
-            st.error('Review held: response must match the requested JSON fields and cite a supplied evidence ID.')
-        else:
-            st.write(EVIDENCE[review['evidence_id']])
-            st.text(review['check'])
-            with st.form(key='analyst_review_' + sha256(raw_review.encode()).hexdigest()):
-                analyst_check = st.text_area('Verified or corrected check and your reason')
-                reviewed = st.form_submit_button('Record analyst review')
-            if reviewed and analyst_check.strip():
-                st.write('Analyst record')
-                st.text(analyst_check.strip())
-                model = os.environ.get('GENAI_MODEL', '')
-                st.download_button('Download review evidence', json.dumps({
-                    'recorded_date': date.today().isoformat(), 'route': route,
-                    'api_model': model if route == 'Purdue GenAI Studio API' else None,
-                    'prompt': PROMPT, 'raw_response': raw_review,
-                    'analyst_validation': analyst_check.strip(),
-                }, indent=2), file_name='ai-review-evidence.json', mime='application/json')
-                if adp_eligible and decision(worst_change) == 'Pilot on paper':
-                    st.success('Advance ADP to paper-position risk testing. Paper and live ADP weights remain 0%.')
-                else:
-                    st.info('ADP remains on hold under the valuation or ETF reference stress rules.')
 
 st.subheader('Portfolio comparison under selected inputs')
 st.caption('Equal weight assigns 25% to each ETF. Inverse volatility gives more weight to ETFs '

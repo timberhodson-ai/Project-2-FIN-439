@@ -1,18 +1,18 @@
-# Capstone submission manifest
+# Project 2 manifest
 
-Repository: [Project-2-FIN-439](https://github.com/timberhodson-ai/Project-2-FIN-439). The file links resolve within the repository once the Capstone files are committed at its root. Confirm course staff can open the links before submitting to Brightspace.
+Repository URL and stable GitHub links are pending. The local file links below identify the intended locations.
 
-| Material | Location |
+| Component | Local location or status |
 |---|---|
-| Repository and startup instructions | [README](../README.md) |
-| Runnable source and dependencies | [App](../app.py), [ETF analysis](../analysis.py), [requirements](../requirements.txt) |
-| Visible executed output | [Saved results](visible-output.md) |
-| Decision memo | [Memo](decision-memo.md) |
-| Validation and AI use | [Locked Changed-Input Record — AI-OFF Test](validation-and-ai-use.md#locked-changed-input-record--ai-off-test). Pre-run GitHub commit unverified. |
-| Launch-post draft | [Draft](launch-post.md) |
-| AI component and validation evidence | [Source](../pilot_review.py), [live response and analyst correction](validation-and-ai-use.md#ai-evidence-review) |
-| Video 1 and transcript | YouTube and GitHub links pending. Maximum 6 minutes. |
-| Video 2 and transcript | YouTube and GitHub links pending. Maximum 10 minutes. |
-| Video 3 and transcript | YouTube and GitHub links pending. Maximum 8 minutes. |
+| Repository instructions | [README](../README.md) |
+| Runnable app and calculations | [app.py](../app.py), [analysis.py](../analysis.py), [portfolio.py](../portfolio.py) |
+| Frozen inputs and signal | [prices.csv](../prices.csv), [data card](data-card.md) |
+| Executed output | [Visible output](visible-output.md) |
+| Committee recommendation | [Decision memo](decision-memo.md) |
+| Validation and locked prediction | [Validation and AI use](validation-and-ai-use.md) |
+| Individual checkout | [Lab 20 DRIVER record](lab-20.md) |
+| Video 1, how the app and thinking changed and one AI-assisted result checked, max 3 min | [YouTube](https://youtu.be/xTawlvRff50), [transcript](transcripts/transcript-video-1.txt). Planned cues: 0:35 change in thinking, 1:15 EEM check, 2:10 committee ask. Confirm actual title, duration, timestamps, and viewer access against the recording. |
+| Video 2, code walkthrough and a validation result, max 5 min | [YouTube](https://youtu.be/UV0kn-Tckl0), [transcript](transcripts/transcript-video-2.txt). Supplied cues: 0:00 setup, 0:35 sidebar input, 1:10 estimates, 2:10 optimizer and mandate, 3:15 live test. Confirm actual title, runtime, and viewer access. |
+| Video 3, committee presentation opening with the live app, max 5 min | [YouTube](https://youtu.be/wtkCWQNMytA), [transcript](transcripts/transcript-video-3.txt). Supplied cues: 0:00 live app and recommendation, 0:45 portfolio comparison, 1:45 live EEM cap test, 3:05 monitoring and committee ask. Confirm actual title, runtime, timestamps, and viewer access. |
 
-Record each video's title, duration, evidence timestamps, and confirmed access after recording.
+Add verified video links, durations, timestamp indexes and transcript locations after recording. Open each video with the AI-use and education statements. Check access for the course staff after publication. [Course student checklist](https://github.com/CinderZhang/FIN43900-Fall2026/blob/main/projects/major-project-student-checklist.md)

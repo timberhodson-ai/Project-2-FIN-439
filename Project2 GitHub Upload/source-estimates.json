@@ -1,0 +1,270 @@
+{
+  "objective": 0.07,
+  "minimum_weights": {
+    "VOO": 0.4
+  },
+  "maximum_weights": {
+    "VB": 0.3,
+    "EEM": 0.3
+  },
+  "sources": {
+    "VOO": {
+      "source": "https://finance.yahoo.com/quote/VOO/history/",
+      "download_url": "https://query1.finance.yahoo.com/v8/finance/chart/VOO?range=6y&interval=1d&events=history&includeAdjustedClose=true",
+      "download_date": "2026-10-22",
+      "sha256": "0070585ed3214bab7fee4486a497b62f4ffd6e6a66f454ef069a58cec7fdd56a"
+    },
+    "QQQ": {
+      "source": "https://finance.yahoo.com/quote/QQQ/history/",
+      "download_url": "https://query1.finance.yahoo.com/v8/finance/chart/QQQ?range=6y&interval=1d&events=history&includeAdjustedClose=true",
+      "download_date": "2026-10-22",
+      "sha256": "d87fec58b5506accd5fa50f658c51f474dcac0379260755e254ed037aa66698d"
+    },
+    "VB": {
+      "source": "https://finance.yahoo.com/quote/VB/history/",
+      "download_url": "https://query1.finance.yahoo.com/v8/finance/chart/VB?range=6y&interval=1d&events=history&includeAdjustedClose=true",
+      "download_date": "2026-10-22",
+      "sha256": "58110b8f086f84fc3ed220e172c3cdda4abd8a2912eb3d2933f854c8ad1727d7"
+    },
+    "EEM": {
+      "source": "https://finance.yahoo.com/quote/EEM/history/",
+      "download_url": "https://query1.finance.yahoo.com/v8/finance/chart/EEM?range=6y&interval=1d&events=history&includeAdjustedClose=true",
+      "download_date": "2026-10-22",
+      "sha256": "95f92ea817e16740f6dbbe5b56d3591479f28c3f6805d278819659063a92dd99"
+    }
+  },
+  "price_rows": 61,
+  "runs": {
+    "all_months": {
+      "estimates": {
+        "VOO": [
+          0.1417639216918456,
+          0.15666675057633947
+        ],
+        "QQQ": [
+          0.1734509723977566,
+          0.2086736937680051
+        ],
+        "VB": [
+          0.0855303661796859,
+          0.1906299348233742
+        ],
+        "EEM": [
+          0.09533386789257028,
+          0.17677339288360044
+        ]
+      },
+      "correlations": [
+        [
+          1.0,
+          0.917074176024492,
+          0.8690399276886069,
+          0.6561546605777457
+        ],
+        [
+          0.917074176024492,
+          1.0,
+          0.7245002769154876,
+          0.6343722698100575
+        ],
+        [
+          0.8690399276886069,
+          0.7245002769154876,
+          1.0,
+          0.5923594360372575
+        ],
+        [
+          0.6561546605777457,
+          0.6343722698100575,
+          0.5923594360372575,
+          1.0
+        ]
+      ],
+      "result": {
+        "weights": [
+          0.7,
+          0.0,
+          0.0,
+          0.3
+        ],
+        "return": 0.127834905552063,
+        "volatility": 0.14990455890408416,
+        "reserve": 0
+      },
+      "one_point_lower_return": {
+        "VOO": {
+          "result": {
+            "weights": [
+              0.7,
+              0.0,
+              0.0,
+              0.3
+            ],
+            "return": 0.120834905552063,
+            "volatility": 0.14990455890408416,
+            "reserve": 0
+          },
+          "largest_weight_change_points": 0.0
+        },
+        "QQQ": {
+          "result": {
+            "weights": [
+              0.7,
+              0.0,
+              0.0,
+              0.3
+            ],
+            "return": 0.127834905552063,
+            "volatility": 0.14990455890408416,
+            "reserve": 0
+          },
+          "largest_weight_change_points": 0.0
+        },
+        "VB": {
+          "result": {
+            "weights": [
+              0.7,
+              0.0,
+              0.0,
+              0.3
+            ],
+            "return": 0.127834905552063,
+            "volatility": 0.14990455890408416,
+            "reserve": 0
+          },
+          "largest_weight_change_points": 0.0
+        },
+        "EEM": {
+          "result": {
+            "weights": [
+              0.7,
+              0.0,
+              0.0,
+              0.3
+            ],
+            "return": 0.124834905552063,
+            "volatility": 0.14990455890408416,
+            "reserve": 0
+          },
+          "largest_weight_change_points": 0.0
+        }
+      }
+    },
+    "last_36": {
+      "estimates": {
+        "VOO": [
+          0.21492334470675808,
+          0.1244688428952341
+        ],
+        "QQQ": [
+          0.26391540449537143,
+          0.17256434152214611
+        ],
+        "VB": [
+          0.16512359136972707,
+          0.1696076323255901
+        ],
+        "EEM": [
+          0.22525343780781068,
+          0.1523262649049261
+        ]
+      },
+      "correlations": [
+        [
+          1.0,
+          0.9097507847380881,
+          0.8071715536928306,
+          0.6533692972382269
+        ],
+        [
+          0.9097507847380881,
+          1.0,
+          0.6303013732206273,
+          0.6816912911980991
+        ],
+        [
+          0.8071715536928306,
+          0.6303013732206273,
+          1.0,
+          0.5510808069954906
+        ],
+        [
+          0.6533692972382269,
+          0.6816912911980991,
+          0.5510808069954906,
+          1.0
+        ]
+      ],
+      "result": {
+        "weights": [
+          0.8,
+          0.0,
+          0.0,
+          0.2
+        ],
+        "return": 0.2169893633269686,
+        "volatility": 0.12168575474183299,
+        "reserve": 0
+      },
+      "one_point_lower_return": {
+        "VOO": {
+          "result": {
+            "weights": [
+              0.8,
+              0.0,
+              0.0,
+              0.2
+            ],
+            "return": 0.2089893633269686,
+            "volatility": 0.12168575474183299,
+            "reserve": 0
+          },
+          "largest_weight_change_points": 0.0
+        },
+        "QQQ": {
+          "result": {
+            "weights": [
+              0.8,
+              0.0,
+              0.0,
+              0.2
+            ],
+            "return": 0.2169893633269686,
+            "volatility": 0.12168575474183299,
+            "reserve": 0
+          },
+          "largest_weight_change_points": 0.0
+        },
+        "VB": {
+          "result": {
+            "weights": [
+              0.8,
+              0.0,
+              0.0,
+              0.2
+            ],
+            "return": 0.2169893633269686,
+            "volatility": 0.12168575474183299,
+            "reserve": 0
+          },
+          "largest_weight_change_points": 0.0
+        },
+        "EEM": {
+          "result": {
+            "weights": [
+              0.8,
+              0.0,
+              0.0,
+              0.2
+            ],
+            "return": 0.2149893633269686,
+            "volatility": 0.12168575474183299,
+            "reserve": 0
+          },
+          "largest_weight_change_points": 0.0
+        }
+      }
+    }
+  },
+  "window_change_points": 10.000000000000009
+}

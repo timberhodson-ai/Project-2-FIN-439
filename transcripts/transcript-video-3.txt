@@ -1,0 +1,31 @@
+Project 2 · Video 3 — Committee presentation
+
+0:00–0:45 · Open with the live app and your recommendation
+
+I used OpenAI Codex to help integrate my lab code, build the dashboard, and test the results. I reviewed the evidence and own the analysis and decision. This is for education only and does not constitute investment advice.
+
+My recommendation is to authorize an ETF paper pilot with zero live capital. For the October 22 snapshot, I’d start at 70 percent VOO and 30 percent EEM. Across the base case and four reference stresses, the paper weights range from 70 to 80 percent VOO and 20 to 30 percent EEM. QQQ and VB stay at zero in those runs.
+
+0:45–1:45 · Explain why this portfolio
+
+My mandate is to minimize estimated annual volatility while clearing a seven percent estimated net return hurdle and respecting the weight limits. The proposed mix passes. It has a 12.78 percent estimated net return and 14.99 percent estimated volatility.
+
+The all-VOO benchmark has a higher estimated return of 14.18 percent and higher estimated volatility of 15.67 percent. I’m willing to give up some estimated return in this test because the mandate prioritizes lower volatility once the return hurdle is met.
+
+Both simpler approaches clear the return hurdle, but neither meets the 40 percent VOO minimum. That’s why I’d ask the committee to judge each portfolio against the full mandate.
+
+1:45–3:05 · Change one input live
+
+I tested a lower VOO return estimate, a shorter estimation window, higher annual trading costs, and a tighter EEM limit. I’ll show what happens if the committee tightens just one rule.
+
+The selected portfolio moves from 70 percent VOO and 30 percent EEM to 80 percent VOO and 20 percent EEM. The largest move is ten percentage points, below my 15-point stop threshold.
+
+The shorter estimation window also produced a ten-point move. The VOO return haircut and the 50-basis-point cost stress reduced estimated return while leaving the weights in place. I’d stop the pilot if a stress leaves no portfolio that meets the mandate or moves any holding by at least 15 percentage points.
+
+3:05–4:20 · Restore the base case and make the committee ask
+
+The app also shows a lagged VOO momentum signal. I use it as a timing diagnostic. It doesn’t set the weights. The allocation relies on historical estimates from one sample, and the selected mix is concentrated in two equity funds. The volatility estimate alone doesn’t tell us how much the portfolio could lose in a severe decline.
+
+During the pilot, I’d rerun the mandate and all four stresses when new month-end data arrive. I’d monitor trading costs, concentration, and whether the weights stay within the stop rule. Before putting live capital at risk, I’d want results from data outside the original sample and a realistic estimate of trading costs.
+
+My ask is to approve the paper pilot at 70 percent VOO and 30 percent EEM, with zero live capital and the stop rule in place.
